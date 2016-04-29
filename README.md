@@ -1,4 +1,5 @@
-#JuaKali is a security automation and retesting utility that allows for security retesting using Jenkins and security testing frameworks such as Guantlt. The name come from the swahili word, JuaKali, which is given to craftsmen who work in the hot sun making products with materials they have at hand. This utility is simply using what many organization have on hand to build simple security tests.
+#JuaKali a security automation and retesting utility
+JuaKali allows for security retesting using Jenkins and security testing frameworks such as Guantlt. The name come from the swahili word, JuaKali, which is given to craftsmen who work in the hot sun making products with materials they have at hand. This utility is simply using what many organization have on hand to build simple security tests.
 
 ##Install
 Cloning::
@@ -48,3 +49,8 @@ https://github.com/gauntlt/gauntlt
 http://docs.openstack.org/infra/jenkins-job-builder/index.html
 
 ###Ansible Vault
+https://pypi.python.org/pypi/ansible-vault/1.0.3
+
+To install::
+
+    $ pip install --user test
