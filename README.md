@@ -12,7 +12,8 @@ Install the git plugin for Jenkins, or your preferred SCM plugin and the Slack p
 
     $ sh setup.sh
 
-Create your first security test::
+**Create your first security test:**
+This test will create a folder and place a sample CURL attack in the folder along with the job definition.
 
     $ cd scripts/bin
     $ ./set-env.sh
