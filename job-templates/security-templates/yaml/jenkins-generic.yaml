@@ -1,0 +1,13 @@
+- project:
+    name: {{ jenkinsProjectName }}
+    appsec-names:
+      - {{ jenkinsJobName }}
+    num:
+      - {{ jobid }}
+    project-folder: {{ folder }}
+    jobs:
+      - '{appsec-names}_AppSec_Defect_Test_{num}'
+    properties:
+       - slack:
+         include-custom-message: true
+         custom-message: "Security defect fixed, please verify and close."

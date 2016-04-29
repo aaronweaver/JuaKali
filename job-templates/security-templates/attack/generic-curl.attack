@@ -1,0 +1,18 @@
+Feature: Launch curl defect
+
+Background:
+  Given "curl" is installed
+  And the following profile:
+    | name     | value      |
+    | hostname | www.bodgeit.io |
+
+Scenario: Describe the attack
+  When I launch a "curl" attack with:
+    """
+    curl --silent 'http://<hostname>/'
+    """
+  #check for the  attack
+  Then the output should not contain:
+    """
+    #Edit me and replace with your test values
+    """

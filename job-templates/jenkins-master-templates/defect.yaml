@@ -1,0 +1,34 @@
+- job-template:
+    name: '{appsec-names}_AppSec_Defect_Test_{num}'
+    id: AppSec_Defect_Test
+    description: 'Application Security Tests, only edit with Jenkins Builder'
+    project-type: freestyle
+    block-downstream: false
+    triggers:
+      - timed: '@midnight'
+    builders:
+      - shell: |
+          #!/bin/bash
+          . ~/.bashrc
+          #Run the gauntlt script
+          sh $JUAKALIINSTALL/scripts/jenkins/run-gauntlt.sh {project-folder}/*.attack
+    properties:
+       - slack:
+          notify-start: false
+          notify-success: true
+          notify-aborted: true
+          notify-notbuilt: false
+          notify-unstable: true
+          notify-failure: false
+          notify-backtonormal: false
+          notify-repeatedfailure: false
+          include-test-summary: true
+          show-commit-list: true
+          include-custom-message: true
+          custom-message: "Security defect fixed, please verify and close."
+    publishers:
+      - slack:
+          team-domain:  #replaceme#
+          auth-token: #replaceme#
+          build-server-url:  #replaceme#
+          room: '#security-defect' 

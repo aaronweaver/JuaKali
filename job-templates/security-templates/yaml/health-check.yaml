@@ -1,0 +1,9 @@
+- project:
+    name: {{ jenkinsProjectName }}
+    appsec-names:
+      - {{ jenkinsJobName }}
+    num:
+      - {{ jobid }}
+    project-folder: {{ folder }}
+    jobs:
+      - '{appsec-names}_AppSec_Health_Check_{num}'

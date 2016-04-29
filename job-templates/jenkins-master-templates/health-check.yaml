@@ -1,0 +1,33 @@
+- job-template:
+    name: '{appsec-names}_AppSec_Health_Check_{num}'
+    description: 'Application Security Health Check, only edit with Jenkins Builder'
+    project-type: freestyle
+    block-downstream: false
+    triggers:
+      - timed: '@hourly'
+    builders:
+      - shell: |
+          #!/bin/bash
+          . ~/.bashrc
+          #Run the gauntlt script
+          sh $JUAKALIINSTALL/scripts/jenkins/run-gauntlt.sh {project-folder}/*.attack
+    properties:
+       - slack:
+          notify-start: false
+          notify-success: false
+          notify-aborted: true
+          notify-notbuilt: false
+          notify-unstable: true
+          notify-failure: true
+          notify-backtonormal: false
+          notify-repeatedfailure: false
+          include-test-summary: true
+          show-commit-list: true
+          include-custom-message: true
+          custom-message: "Product test failed, please review in Jenkins"
+    publishers:
+      - slack:
+          team-domain:  #replaceme#
+          auth-token:  #replaceme#
+          build-server-url:  #replaceme#
+          room: '#security-health-check'

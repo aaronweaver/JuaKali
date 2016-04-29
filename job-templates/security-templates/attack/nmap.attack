@@ -1,0 +1,23 @@
+@slow
+
+Feature: Checks to see if SSL is up and running on jira
+  Background:
+    Given "nmap" is installed
+    And the following profile:
+      | name           | value        |
+      | hostname       | yoursite.com  |
+      | host           | yoursite.com   |
+
+  Scenario: Verify server is open on expected set of ports using the nmap-fast attack step
+    When I launch a "nmap-fast" attack
+    Then the output should match /443.tcp\s+open/
+
+  Scenario: Verify server is open on expected set of ports using the nmap fast flag
+    When I launch an "nmap" attack with:
+      """
+      nmap -F <hostname>
+      """
+    Then the output should match:
+      """
+      443/tcp\s+open
+      """

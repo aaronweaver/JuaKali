@@ -1,0 +1,41 @@
+- job:
+    name: Master-Security-Tests-Build
+    description: |
+          This job is responsible for pulling the latest tests from git and running the script
+          that creates the Jenkins job via Jenkins-Builder.
+    project-type: freestyle
+    scm:
+      - git:
+          url: 'https://yourgitserver.io'
+          branches:
+            - refs/heads/master
+          credentials-id: change-me-credit
+          skip-tag: true
+    block-downstream: false
+    builders:
+      - shell: |
+          #!/bin/bash
+          . ~/.bashrc
+          #copy the git scripts and yaml files into the jenkins home directory
+          echo "Copying files from workspace to local folder"
+          sh $JUAKALIINSTALL/scripts/jenkins/master-security-tests-build.sh
+    properties:
+       - slack:
+          notify-start: true
+          notify-success: true
+          notify-aborted: true
+          notify-notbuilt: false
+          notify-unstable: true
+          notify-failure: true
+          notify-backtonormal: false
+          notify-repeatedfailure: false
+          include-test-summary: true
+          show-commit-list: true
+          include-custom-message: false
+    publishers:
+      - slack:
+          team-domain:  #replaceme#
+          auth-token:  #replaceme#
+          build-server-url:  #replaceme#
+          room: '#security-builds'
+          notify-success: true

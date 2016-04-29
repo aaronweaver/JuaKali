@@ -1,0 +1,11 @@
+@final
+Feature: hello world with gauntlt using the generic command line attack
+  Scenario:
+    When I launch a "generic" attack with:
+      """
+      python /opt/jenkins-security-automation/security-tests/defects/yourtestfolder/xss.py
+      """
+    Then the output should not contain:
+      """
+      #changeme
+      """

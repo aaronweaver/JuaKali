@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#Set the path to the installaion of the security-automation tool
+export JUAKALIINSTALL='JUAKALIPATH'
+
+#Set the GAUNTLT install path
+export GAUNTLT='GAUNTLTPATH'
+
+#Set the vault password, for testing only, change for production
+export vaultpwd='VLTPASSWORD'
+
+echo "Activating the virtual environment"
+. $JUAKALIINSTALL/venv/bin/activate

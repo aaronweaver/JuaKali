@@ -1,0 +1,4 @@
+jenkins-job-builder
+jinja2
+ansible-vault
+requests
