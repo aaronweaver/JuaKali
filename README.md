@@ -2,13 +2,13 @@
 JuaKali allows for security retesting using Jenkins and security testing frameworks such as Guantlt. The name come from the swahili word, JuaKali, which is given to craftsmen who work in the hot sun making products with materials they have at hand. This utility is simply using what many organization have on hand to build simple security tests.
 
 ##Install
-Cloning
+**Cloning**
 
     git clone https://github.com/aaronweaver/JuaKali.git
 
 Install the git plugin for Jenkins, or your preferred SCM plugin and the Slack plugin. Alternatively you can use the hipchat plugin.
 
-Setup
+**Setup**
 
     $ sh setup.sh
 
@@ -25,7 +25,7 @@ Create your first security test::
 * The master templates for the Jenkins jobs are in job-templates/jenkins-master-templates. The majority of customization will be done by editing these two files.
 
 
-    $ jenkins-jobs --conf $JUAKALIINSTALL/config/env/jenkins_job.ini update -r job-templates/jenkins-master-templates/master-security-tests-jenkins.yaml
+     `$ jenkins-jobs --conf $JUAKALIINSTALL/config/env/jenkins_job.ini update -r job-templates/jenkins-master-templates/master-security-tests-jenkins.yaml`
 
 ##Master Job
 There is a master template job that can be used to create a job that pulls in the latest security tests and automatically builds them in Jenkins. This file is in job-templates/master-job-config/master-security-test-jenkins.yaml. Edit this file adding your particular configuration and then run the Jenkins builder job.
@@ -37,14 +37,16 @@ In scripts/bin there is a build.sh file that will checkin the code and kick off 
 ##Version Note
 The pip install of Jenkins Builder doesn't seem to have slack support yet. If that's the case then do a git pull from source as that has Slack support.
 
-Cloning
+**Cloning**
 
     git clone https://git.openstack.org/openstack-infra/jenkins-job-builder
 
 ##Dependencies
 
 ###Jenkins
-* The example configuration files use the git and slack plugins
+* The example configuration files use the git and slack plugins. Install these before running Jenkins Builder
+* Ruby requires a little special treatment to run on Jenkins, this article does a decent job in describing how to go about doing that. https://rvm.io/integration/jenkins
+* Modify Jenkin's login user profile and add the variable for where JuaKali is installed: $JUAKALIINSTALL=/path/to/install
 * There is a bug in certain versions of Jenkins that require a Jenkins restart. If you get an error when running Jenkins builder that outputs a slack error, then restart the server.
 
 ###Install Gauntlt
