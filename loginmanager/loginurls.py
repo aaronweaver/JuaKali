@@ -32,7 +32,7 @@ def loginSite(userObj, useProxy=False, url=None, debug=False):
     env = userObj["env"]
 
     if url is None:
-        remoteURL = urlcfg['aplia'][env]
+        remoteURL = urlcfg['bodgeit'][env]
 
     session = requests.Session()
 

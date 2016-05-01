@@ -1,5 +1,8 @@
 ##JuaKali a security automation and retesting utility
-JuaKali allows for security retesting using Jenkins and security testing frameworks such as Guantlt. The name come from the swahili word, JuaKali, which is given to craftsmen who work in the hot sun making products with materials they have at hand. This utility is simply using what many organization have on hand to build simple security tests.
+JuaKali allows for security re-testing using Jenkins and security testing frameworks such as Guantlt. The name come from the swahili word, JuaKali, which is given to craftsmen who work in the hot sun making products with materials they have at hand. This utility is simply using what many organization have on hand to build simple security tests.
+
+
+![JuaKali](https://raw.githubusercontent.com/appsecpipeline/screenshots/master/JuaKali/Example-JuaKali-Test-Case.png "Workflow")
 
 ##Install
 **Cloning**
