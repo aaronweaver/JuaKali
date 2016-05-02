@@ -47,7 +47,8 @@ def setupProject(templateType, targetFolder, projectName, testid):
     projectName = formatFileName(projectName)
 
     #format testid
-    testid = formatFileName(testid)
+    if testid is not None:
+        testid = formatFileName(testid)
 
     #Set the path to the destination project directory
     testDirectory = os.path.join(os.path.dirname(__file__), "../../security-tests/")

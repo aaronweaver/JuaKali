@@ -1,0 +1,13 @@
+- project:
+    name: project-1407662b-100a-11e6-b530-f45c89996dab
+    appsec-names:
+      - XSS_Gruyere_Error_Page
+    num:
+      - 91467
+    project-folder: defects/XSS_Gruyere_Error_Page_91467
+    jobs:
+      - '{appsec-names}_AppSec_Defect_Test_{num}'
+    properties:
+       - slack:
+         include-custom-message: true
+         custom-message: "Security defect fixed, please verify and close."

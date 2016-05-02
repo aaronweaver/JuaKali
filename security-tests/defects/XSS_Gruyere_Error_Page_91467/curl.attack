@@ -1,0 +1,18 @@
+Feature: Launch curl attack
+
+Background:
+  Given "curl" is installed
+  And the following profile:
+    | name     | value      |
+    | hostname | https://google-gruyere.appspot.com/149521394764 |
+
+Scenario: Verify that XSS does not exist on the error page
+  When I launch a "curl" attack with:
+    """
+    curl --silent '<hostname>/out/<script>alert(1)</script>'
+    """
+  #XSS on error page
+  Then the output should not contain:
+    """
+    <script>alert
+    """

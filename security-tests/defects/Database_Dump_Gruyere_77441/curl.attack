@@ -1,0 +1,18 @@
+Feature: Launch curl defect
+
+Background:
+  Given "curl" is installed
+  And the following profile:
+    | name     | value      |
+    | hostname | google-gruyere.appspot.com/149521394764 |
+
+Scenario: Should not contain the database dump
+  When I launch a "curl" attack with:
+    """
+    curl --silent 'http://<hostname>/dump.gtl'
+    """
+  #check for the  attack
+  Then the output should not contain:
+    """
+    {'administrator'
+    """

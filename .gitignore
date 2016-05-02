@@ -25,6 +25,7 @@ parts/
 sdist/
 var/
 bin/tmp
+scripts/bin/tmp
 *.egg-info/
 .installed.cfg
 *.egg
