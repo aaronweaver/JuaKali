@@ -3,6 +3,7 @@ Feature: Launch curl defect
 Background:
   Given "curl" is installed
   And the following profile:
+  #Change the Gruyere instance to an instance that your start or reference a local install of gruyere
     | name     | value      |
     | hostname | google-gruyere.appspot.com/149521394764 |
 

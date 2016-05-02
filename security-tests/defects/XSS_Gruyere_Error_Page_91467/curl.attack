@@ -3,6 +3,7 @@ Feature: Launch curl attack
 Background:
   Given "curl" is installed
   And the following profile:
+  #Change the Gruyere instance to an instance that your start or reference a local install of gruyere
     | name     | value      |
     | hostname | https://google-gruyere.appspot.com/149521394764 |
 
